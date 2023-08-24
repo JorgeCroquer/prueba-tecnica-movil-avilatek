@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'screens/actor-profile/bloc/actor_profile_bloc.dart';
 import 'screens/feed/bloc/feed_bloc.dart';
@@ -7,12 +8,14 @@ import 'screens/movie-details/bloc/movie_details_bloc.dart';
 
 import 'screens/index.dart' as screens;
 
-void main() {
+Future<void> main() async {
   final List<BlocProvider> blocs = [
     BlocProvider<ActorProfileBloc>(create: (_) => ActorProfileBloc()),
     BlocProvider<FeedBloc>(create: (_) => FeedBloc()),
     BlocProvider<MovieDetailsBloc>(create: (_) => MovieDetailsBloc()),
   ];
+
+  await dotenv.load(fileName: '.env');
 
   runApp(MultiBlocProvider(providers: blocs, child: const MyApp()));
 }
