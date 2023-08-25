@@ -4,3 +4,15 @@ part of 'feed_bloc.dart';
 sealed class FeedState {}
 
 final class FeedInitial extends FeedState {}
+
+final class FeedLoading extends FeedState {}
+
+final class FeedLoaded extends FeedState {
+  final FeedMoviesListDto items;
+
+  FeedLoaded(this.items);
+}
+
+final class FeedError extends FeedState {
+  FeedError();
+}
