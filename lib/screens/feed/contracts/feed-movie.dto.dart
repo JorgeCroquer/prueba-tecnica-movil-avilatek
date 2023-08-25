@@ -13,6 +13,7 @@ class FeedMovieDto {
   final bool video;
   final double voteAverage;
   final int voteCount;
+  String? imageUrl;
 
   FeedMovieDto({
     required this.adult,
@@ -29,6 +30,7 @@ class FeedMovieDto {
     required this.video,
     required this.voteAverage,
     required this.voteCount,
+    this.imageUrl,
   });
 
   factory FeedMovieDto.fromJson(Map<String, dynamic> json) => FeedMovieDto(
@@ -47,21 +49,4 @@ class FeedMovieDto {
         voteAverage: json['vote_average'].toDouble(),
         voteCount: json['vote_count'],
       );
-
-  Map<String, dynamic> toJson() => {
-        'adult': adult,
-        'backdrop_path': backdropPath,
-        'genre_ids': List<dynamic>.from(genreIds.map((x) => x)),
-        'id': id,
-        'original_language': originalLanguage,
-        'original_title': originalTitle,
-        'overview': overview,
-        'popularity': popularity,
-        'poster_path': posterPath,
-        'release_date': releaseDate,
-        'title': title,
-        'video': video,
-        'vote_average': voteAverage,
-        'vote_count': voteCount
-      };
 }

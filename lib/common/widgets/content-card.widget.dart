@@ -79,7 +79,7 @@ class ContentCardWidget extends StatelessWidget {
           style: const TextStyle(
             color: Colors.white,
             fontSize: 8,
-            fontFamily: 'Baloo 2',
+            fontFamily: 'Baloo2',
             fontWeight: FontWeight.w400,
           ),
         ),
