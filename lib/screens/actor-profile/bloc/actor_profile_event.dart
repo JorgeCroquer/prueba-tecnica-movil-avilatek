@@ -6,5 +6,5 @@ sealed class ActorProfileEvent {}
 final class LoadActorProfile extends ActorProfileEvent {
   final int actorId;
 
-  LoadActorProfile(this.actorId);
+  LoadActorProfile({required this.actorId});
 }
