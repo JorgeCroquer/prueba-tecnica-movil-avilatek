@@ -29,11 +29,7 @@ class ContentCardWidget extends StatelessWidget {
         width: cardSize.width,
         height: cardSize.height,
         child: Stack(
-          children: [
-            _backgroundImage(),
-            _titleText(),
-            _subtitleText(),
-          ],
+          children: [_backgroundImage(), _info()],
         ),
       ),
     );
@@ -59,42 +55,45 @@ class ContentCardWidget extends StatelessWidget {
     );
   }
 
-  Widget _titleText() {
+  Widget _info() {
     return Positioned(
       left: 11,
-      top: cardSize.height * 0.8,
+      bottom: cardSize.height * 0.05,
       child: SizedBox(
-        width: cardSize.width - 11,
-        height: 16,
-        child: Text(
-          title,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 12,
-            fontFamily: 'Baloo',
-            fontWeight: FontWeight.w400,
-          ),
+        width: cardSize.width - 22,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _titleText(),
+            _subtitleText(),
+          ],
         ),
       ),
     );
   }
 
+  Widget _titleText() {
+    return Text(
+      title,
+      style: const TextStyle(
+          overflow: TextOverflow.visible,
+          color: Colors.white,
+          fontFamily: 'Baloo',
+          fontSize: 12,
+          fontWeight: FontWeight.w700,
+          height: 1.05),
+      maxLines: 2,
+    );
+  }
+
   Widget _subtitleText() {
-    return Positioned(
-      left: 11,
-      top: cardSize.height * 0.8 + 16,
-      child: SizedBox(
-        width: cardSize.width - 11,
-        height: 13,
-        child: Text(
-          subtitle,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 8,
-            fontFamily: 'Baloo2',
-            fontWeight: FontWeight.w400,
-          ),
-        ),
+    return Text(
+      subtitle,
+      style: const TextStyle(
+        color: Colors.white,
+        fontSize: 8,
+        fontFamily: 'Baloo2',
+        fontWeight: FontWeight.w400,
       ),
     );
   }

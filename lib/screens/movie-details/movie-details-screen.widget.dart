@@ -53,6 +53,7 @@ class _MovieDetailsScreenWidgetState extends State<MovieDetailsScreenWidget> {
       body: Stack(
         children: [
           _backgroundImage(state),
+          _cancelButton(),
           _titleText(state),
           _subtitleText(state),
           _actorsList(state),
@@ -81,6 +82,22 @@ class _MovieDetailsScreenWidgetState extends State<MovieDetailsScreenWidget> {
     );
   }
 
+  Widget _cancelButton() {
+    return Positioned(
+      left: 11,
+      top: 41,
+      child: SizedBox(
+        width: 50,
+        height: 50,
+        child: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Image.asset('assets/cancel-button.png')),
+      ),
+    );
+  }
+
   Widget _titleText(MovieDetailsLoaded state) {
     return Positioned(
       left: 11,
@@ -91,11 +108,13 @@ class _MovieDetailsScreenWidgetState extends State<MovieDetailsScreenWidget> {
         child: Text(
           state.movieDetailsDto.title,
           style: const TextStyle(
-            color: Colors.white,
-            fontFamily: 'Baloo',
-            fontSize: 42,
-            fontWeight: FontWeight.w700,
-          ),
+              overflow: TextOverflow.visible,
+              color: Colors.white,
+              fontFamily: 'Baloo',
+              fontSize: 36,
+              fontWeight: FontWeight.w700,
+              height: 1.05),
+          maxLines: 2,
         ),
       ),
     );
@@ -104,7 +123,7 @@ class _MovieDetailsScreenWidgetState extends State<MovieDetailsScreenWidget> {
   Widget _subtitleText(MovieDetailsLoaded state) {
     return Positioned(
       left: 11,
-      top: _screenSize.height * 0.6 + 60,
+      top: _screenSize.height * 0.6 + 90,
       child: SizedBox(
         width: _screenSize.width,
         height: 30,
