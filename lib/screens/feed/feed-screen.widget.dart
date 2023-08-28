@@ -108,34 +108,6 @@ class _FeedScreenWidgetState extends State<FeedScreenWidget> {
   Widget _feedList(final List<FeedMovieDto> items) {
     const double offset = 36;
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 16),
-          Wrap(
-            spacing: 24,
-            runSpacing: offset,
-            children: items
-                .asMap()
-                .map((index, item) => MapEntry(
-                    index,
-                    Transform.translate(
-                      offset: Offset(0, index.isEven ? 0 : offset),
-                      child: common_widgets.ContentCardWidget(
-                        title: item.title,
-                        subtitle:
-                            '${(item.voteAverage * 10).toInt()}% User\'s score',
-                        imageUrl: item.imageUrl!,
-                      ),
-                    )))
-                .values
-                .toList(),
-          ),
-          const SizedBox(height: 16),
-        ],
-      ),
-    );
+    return common_widgets.MovieFeedWidget(offset: offset, items: items);
   }
 }
