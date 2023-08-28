@@ -47,21 +47,4 @@ class ActorDto {
         popularity: json['popularity'].toDouble(),
         profilePath: json['profile_path'],
       );
-
-  Map<String, dynamic> toJson() => {
-        'adult': adult,
-        'also_known_as': List<dynamic>.from(alsoKnownAs.map((x) => x)),
-        'biography': biography,
-        'birthday': birthday,
-        'deathday': deathday,
-        'gender': gender,
-        'homepage': homepage,
-        'id': id,
-        'imdb_id': imdbId,
-        'known_for_department': knownForDepartment,
-        'name': name,
-        'place_of_birth': placeOfBirth,
-        'popularity': popularity,
-        'profile_path': profilePath
-      };
 }

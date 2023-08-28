@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/feed_bloc.dart';
 
 import '../../common/widgets/index.dart' as common_widgets;
+import '../index.dart' as screens;
 import 'contracts/feed-movie.dto.dart';
 
 class FeedScreenWidget extends StatefulWidget {
@@ -30,8 +31,15 @@ class _FeedScreenWidgetState extends State<FeedScreenWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FeedBloc, FeedState>(
+    return BlocConsumer<FeedBloc, FeedState>(
       bloc: _feedBloc,
+      listener: (context, state) => state is FeedMovieDetailClicked
+          ? Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return screens.MovieDetailsScreenWidget(
+                movieId: state.movieId,
+              );
+            }))
+          : null,
       buildWhen: (previous, current) =>
           current is FeedLoaded ||
           current is FeedLoading ||
@@ -108,6 +116,11 @@ class _FeedScreenWidgetState extends State<FeedScreenWidget> {
   Widget _feedList(final List<FeedMovieDto> items) {
     const double offset = 36;
 
-    return common_widgets.MovieFeedWidget(offset: offset, items: items);
+    return common_widgets.MovieFeedWidget(
+        offset: offset,
+        items: items,
+        onItemClicked: (movieId) {
+          _feedBloc.add(ClickInItem(movieId: movieId));
+        });
   }
 }

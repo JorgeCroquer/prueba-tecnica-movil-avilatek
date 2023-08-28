@@ -6,7 +6,7 @@ class ProductionCompanyDto {
       required this.originCountry});
 
   final int id;
-  final String logoPath;
+  final String? logoPath;
   final String name;
   final String originCountry;
 
@@ -16,11 +16,4 @@ class ProductionCompanyDto {
           logoPath: json["logo_path"],
           name: json["name"],
           originCountry: json["origin_country"]);
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "logo_path": logoPath,
-        "name": name,
-        "origin_country": originCountry
-      };
 }

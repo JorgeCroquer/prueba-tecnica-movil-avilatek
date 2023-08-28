@@ -6,11 +6,12 @@ class CastDto {
   final String name;
   final String originalName;
   final double popularity;
-  final String profilePath;
+  final String? profilePath;
   final int castId;
   final String character;
   final String creditId;
   final int order;
+  String? imageUrl;
 
   CastDto({
     required this.adult,
@@ -25,6 +26,7 @@ class CastDto {
     required this.character,
     required this.creditId,
     required this.order,
+    this.imageUrl,
   });
 
   factory CastDto.fromJson(Map<String, dynamic> json) => CastDto(
@@ -41,19 +43,4 @@ class CastDto {
         creditId: json['credit_id'],
         order: json['order'],
       );
-
-  Map<String, dynamic> toJson() => {
-        'adult': adult,
-        'gender': gender,
-        'id': id,
-        'known_for_department': knownForDepartment,
-        'name': name,
-        'original_name': originalName,
-        'popularity': popularity,
-        'profile_path': profilePath,
-        'cast_id': castId,
-        'character': character,
-        'credit_id': creditId,
-        'order': order
-      };
 }

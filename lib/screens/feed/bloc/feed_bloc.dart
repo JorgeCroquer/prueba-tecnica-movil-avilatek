@@ -43,6 +43,10 @@ class FeedBloc extends Bloc<FeedEvent, FeedState> {
         emit(FeedError());
       }
     });
+
+    on<ClickInItem>((event, emit) async {
+      emit(FeedMovieDetailClicked(event.movieId));
+    });
   }
 
   Future<FeedMoviesListDto> _getFeed(final int page) async {

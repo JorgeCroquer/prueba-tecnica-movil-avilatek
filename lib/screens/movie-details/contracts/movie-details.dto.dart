@@ -29,6 +29,7 @@ class MovieDetailsDto {
   final bool video;
   final double voteAverage;
   final int voteCount;
+  String? imageUrl;
 
   MovieDetailsDto({
     required this.adult,
@@ -56,6 +57,7 @@ class MovieDetailsDto {
     required this.video,
     required this.voteAverage,
     required this.voteCount,
+    this.imageUrl,
   });
 
   factory MovieDetailsDto.fromJson(Map<String, dynamic> json) =>
@@ -92,35 +94,4 @@ class MovieDetailsDto {
         voteAverage: json['vote_average'].toDouble(),
         voteCount: json['vote_count'],
       );
-
-  Map<String, dynamic> toJson() => {
-        'adult': adult,
-        'backdrop_path': backdropPath,
-        'belongs_to_collection': belongsToCollection,
-        'budget': budget,
-        'genres': List<dynamic>.from(genres.map((x) => x.toJson())),
-        'homepage': homepage,
-        'id': id,
-        'imdb_id': imdbId,
-        'original_language': originalLanguage,
-        'original_title': originalTitle,
-        'overview': overview,
-        'popularity': popularity,
-        'poster_path': posterPath,
-        'production_companies':
-            List<dynamic>.from(productionCompanies.map((x) => x.toJson())),
-        'production_countries':
-            List<dynamic>.from(productionCountries.map((x) => x.toJson())),
-        'release_date': releaseDate,
-        'revenue': revenue,
-        'runtime': runtime,
-        'spoken_languages':
-            List<dynamic>.from(spokenLanguages.map((x) => x.toJson())),
-        'status': status,
-        'tagline': tagline,
-        'title': title,
-        'video': video,
-        'vote_average': voteAverage,
-        'vote_count': voteCount
-      };
 }

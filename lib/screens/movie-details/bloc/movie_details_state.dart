@@ -9,8 +9,12 @@ final class MovieDetailsLoading extends MovieDetailsState {}
 
 final class MovieDetailsLoaded extends MovieDetailsState {
   final MovieDetailsDto movieDetailsDto;
+  final MovieCastingDto movieCastingDto;
 
-  MovieDetailsLoaded({required this.movieDetailsDto});
+  MovieDetailsLoaded({
+    required this.movieDetailsDto,
+    required this.movieCastingDto,
+  });
 }
 
 final class MovieDetailsError extends MovieDetailsState {}

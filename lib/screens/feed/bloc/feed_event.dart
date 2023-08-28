@@ -12,3 +12,9 @@ final class FeedLoadMore extends FeedEvent {
 }
 
 final class FeedRefresh extends FeedEvent {}
+
+final class ClickInItem extends FeedEvent {
+  final int movieId;
+
+  ClickInItem({required this.movieId});
+}

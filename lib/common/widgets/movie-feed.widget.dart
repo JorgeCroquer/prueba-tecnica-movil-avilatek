@@ -8,10 +8,12 @@ class MovieFeedWidget extends StatelessWidget {
     super.key,
     required this.offset,
     required this.items,
+    this.onItemClicked,
   });
 
   final double offset;
   final List<FeedMovieDto> items;
+  final Function? onItemClicked;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +37,7 @@ class MovieFeedWidget extends StatelessWidget {
                         subtitle:
                             '${(item.voteAverage * 10).toInt()}% User\'s score',
                         imageUrl: item.imageUrl!,
+                        onClicked: () => onItemClicked!(item.id),
                       ),
                     )))
                 .values

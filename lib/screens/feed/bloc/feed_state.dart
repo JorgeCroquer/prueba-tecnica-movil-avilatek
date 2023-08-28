@@ -16,3 +16,9 @@ final class FeedLoaded extends FeedState {
 final class FeedError extends FeedState {
   FeedError();
 }
+
+final class FeedMovieDetailClicked extends FeedState {
+  final int movieId;
+
+  FeedMovieDetailClicked(this.movieId);
+}

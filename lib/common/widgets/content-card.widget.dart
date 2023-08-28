@@ -5,24 +5,36 @@ class ContentCardWidget extends StatelessWidget {
       {Key? key,
       required this.title,
       required this.subtitle,
-      required this.imageUrl})
+      required this.imageUrl,
+      this.onClicked,
+      this.cardSize = const Size(151, 218)})
       : super(key: key);
 
   final String title;
   final String subtitle;
   final String imageUrl;
+  final Function? onClicked;
+
+  final Size cardSize;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 151,
-      height: 220,
-      child: Stack(
-        children: [
-          _backgroundImage(),
-          _titleText(),
-          _subtitleText(),
-        ],
+    return GestureDetector(
+      onTap: () {
+        if (onClicked != null) {
+          onClicked!();
+        }
+      },
+      child: SizedBox(
+        width: cardSize.width,
+        height: cardSize.height,
+        child: Stack(
+          children: [
+            _backgroundImage(),
+            _titleText(),
+            _subtitleText(),
+          ],
+        ),
       ),
     );
   }
@@ -32,8 +44,8 @@ class ContentCardWidget extends StatelessWidget {
       left: 0,
       top: 0,
       child: Container(
-        width: 151,
-        height: 218,
+        width: cardSize.width,
+        height: cardSize.height,
         decoration: ShapeDecoration(
           image: DecorationImage(
             image: NetworkImage(imageUrl),
@@ -50,9 +62,9 @@ class ContentCardWidget extends StatelessWidget {
   Widget _titleText() {
     return Positioned(
       left: 11,
-      top: 178,
+      top: cardSize.height * 0.8,
       child: SizedBox(
-        width: 119,
+        width: cardSize.width - 11,
         height: 16,
         child: Text(
           title,
@@ -70,9 +82,9 @@ class ContentCardWidget extends StatelessWidget {
   Widget _subtitleText() {
     return Positioned(
       left: 11,
-      top: 196,
+      top: cardSize.height * 0.8 + 16,
       child: SizedBox(
-        width: 119,
+        width: cardSize.width - 11,
         height: 13,
         child: Text(
           subtitle,
