@@ -1,16 +1,32 @@
 # technical_test_avilatek
 
-A new Flutter project.
+This Flutter project is a Technical Test for Avilatek. The app uses the [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction) to show a list of movies and their details.
 
-## Getting Started
+The architecture used is BLoC, and the app is divided in 3 main screens:
+- Feed: Shows a list of movies. The user can click on a movie to see its details.
+- Movie Details: Shows the details of a movie. The user can click on an actor to see its details.
+- Actor Profile: Shows the details of an actor and a list of movies where he/she has participated. The user can click on a movie to see its details.
 
-This project is a starting point for a Flutter application.
+The design of the screens was provided by Avilatek, and the app was developed by me.
 
-A few resources to get you started if this is your first Flutter project:
+## :rocket: Installation
+The APK file is located in the root of the project, in a filed called `test_avilatek.apk`. You can download it and install it in your Android device.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+If you want to run the app in debug mode, follow the next steps:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### :eyes: Pre-requisites
+The development environment is contained in a [Docker devcontainer]('https://code.visualstudio.com/docs/devcontainers/containers'), so you need to have installed:
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [Visual Studio Code](https://code.visualstudio.com/download)
+- [Visual Studio Code Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+
+### :hammer: Steps
+1. Clone the repository (If you are on Windows, it is recomended to clone it inside the [WSL2]('https://learn.microsoft.com/en-us/windows/wsl/about') filesystem).
+2. Open the project in Visual Studio Code.
+3. Open the Command Palette (Ctrl+Shift+P) and select `Remote-Containers: Reopen in Container`.
+4. Wait for the container to build and start. (It may take a while the first time).
+5. Open a terminal inside the container (Terminal -> New Terminal).
+6. Run `flutter pub get` to install the dependencies.
+7. Run `flutter run` to start the app in debug mode.
+
