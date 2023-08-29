@@ -25,8 +25,11 @@ class MovieDetailsService {
 
   Future<MovieDetailsDto> _attachMovieImageUrl(
       final MovieDetailsDto details) async {
-    details.imageUrl = await _apiService.getImageUrl(details.posterPath,
-        quality: ImageQuality.high);
+    if (details.posterPath != null) {
+      details.imageUrl = await _apiService.getImageUrl(details.posterPath!,
+          quality: ImageQuality.high);
+    }
+
     return details;
   }
 

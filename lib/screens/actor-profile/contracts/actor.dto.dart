@@ -2,17 +2,17 @@ class ActorDto {
   final bool adult;
   final List<String> alsoKnownAs;
   final String biography;
-  final String birthday;
+  final String? birthday;
   final String? deathday;
   final int gender;
   final String? homepage;
   final int id;
-  final String imdbId;
+  final String? imdbId;
   final String knownForDepartment;
   final String name;
-  final String placeOfBirth;
+  final String? placeOfBirth;
   final double popularity;
-  final String profilePath;
+  final String? profilePath;
   String? imageUrl;
 
   ActorDto({

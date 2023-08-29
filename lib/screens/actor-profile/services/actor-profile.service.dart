@@ -11,6 +11,8 @@ class ActorProfileService {
   Future<ActorDto> getActorInfo(final int actorId) async {
     final response = await _apiService.get('/person/$actorId');
 
+    print(response);
+
     final actorWithoutImage = ActorDto.fromJson(response);
 
     return await _attachActorImageUrl(actorWithoutImage);
@@ -25,7 +27,10 @@ class ActorProfileService {
   }
 
   Future<ActorDto> _attachActorImageUrl(final ActorDto actor) async {
-    actor.imageUrl = await _apiService.getImageUrl(actor.profilePath);
+    if (actor.profilePath != null) {
+      actor.imageUrl = await _apiService.getImageUrl(actor.profilePath!);
+    }
+
     return actor;
   }
 

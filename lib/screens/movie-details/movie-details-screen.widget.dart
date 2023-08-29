@@ -74,18 +74,21 @@ class _MovieDetailsScreenWidgetState extends State<MovieDetailsScreenWidget> {
       left: 0,
       top: 0,
       child: Container(
-        width: _screenSize.width,
-        height: _screenSize.height,
-        decoration: ShapeDecoration(
-          image: DecorationImage(
-            image: NetworkImage(state.movieDetailsDto.imageUrl!),
-            fit: BoxFit.cover,
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-        ),
-      ),
+          width: _screenSize.width,
+          height: _screenSize.height,
+          decoration: state.movieDetailsDto.imageUrl != null
+              ? ShapeDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(state.movieDetailsDto.imageUrl!),
+                    fit: BoxFit.cover,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                )
+              : const BoxDecoration(
+                  color: Colors.black,
+                )),
     );
   }
 
@@ -166,7 +169,8 @@ class _MovieDetailsScreenWidgetState extends State<MovieDetailsScreenWidget> {
       return common_widgets.ContentCardWidget(
         title: castMember.name,
         subtitle: castMember.character,
-        imageUrl: castMember.imageUrl ?? '',
+        imageUrl: castMember.imageUrl ??
+            'https://via.assets.so/img.jpg?w=120&h=220&tc=blue&bg=#cecece&t=No Pic',
         cardSize: const Size(113.25, 163.5),
         onClicked: () {
           _movieDetailsBloc.add(ClickOnActorEvent(actorId: castMember.id));

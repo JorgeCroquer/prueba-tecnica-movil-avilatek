@@ -5,18 +5,18 @@ import 'spoken-language.dto.dart';
 
 class MovieDetailsDto {
   final bool adult;
-  final String backdropPath;
+  final String? backdropPath;
   final dynamic belongsToCollection;
   final int budget;
   final List<GenreDto> genres;
-  final String homepage;
+  final String? homepage;
   final int id;
-  final String imdbId;
+  final String? imdbId;
   final String originalLanguage;
   final String originalTitle;
   final String overview;
   final double popularity;
-  final String posterPath;
+  final String? posterPath;
   final List<ProductionCompanyDto> productionCompanies;
   final List<ProductionCountryDto> productionCountries;
   final String releaseDate;

@@ -132,7 +132,7 @@ class _ActorProfileScreenWidgetState extends State<ActorProfileScreenWidget> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
-                width: _screenSize.width * 0.5,
+                width: _screenSize.width * 0.65,
                 height: 30,
                 child: Text(
                   state.actor.name,

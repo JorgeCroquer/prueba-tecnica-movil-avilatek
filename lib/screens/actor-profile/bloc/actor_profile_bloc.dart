@@ -25,7 +25,8 @@ class ActorProfileBloc extends Bloc<ActorProfileEvent, ActorProfileState> {
         final actor = results[0] as ActorDto;
         final movies = results[1] as ActorMoviesDto;
         emit(ActorProfileLoaded(actor, movies));
-      } catch (_) {
+      } catch (e) {
+        print(e);
         emit(ActorProfileError());
       }
     });

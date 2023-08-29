@@ -22,7 +22,8 @@ class MovieDetailsBloc extends Bloc<MovieDetailsEvent, MovieDetailsState> {
         final movieCastDto = await _getMovieCasting(event.movieId);
         emit(MovieDetailsLoaded(
             movieDetailsDto: movieDetailsDto, movieCastingDto: movieCastDto));
-      } catch (_) {
+      } catch (e) {
+        print(e);
         emit(MovieDetailsError());
       }
     });
