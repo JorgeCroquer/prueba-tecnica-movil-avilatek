@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "technical_test_avilatek" "\0"
+            VALUE "FileDescription", "Test Avilatek" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "technical_test_avilatek" "\0"
+            VALUE "InternalName", "Test Avilatek" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
             VALUE "OriginalFilename", "technical_test_avilatek.exe" "\0"
-            VALUE "ProductName", "technical_test_avilatek" "\0"
+            VALUE "ProductName", "Test Avilatek" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
