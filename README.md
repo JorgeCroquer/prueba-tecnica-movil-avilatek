@@ -10,7 +10,7 @@ The architecture used is BLoC, and the app is divided in 3 main screens:
 The design of the screens was provided by Avilatek, and the app was developed by me.
 
 ## :rocket: Installation
-The APK file is located in the root of the project, in a filed called `test_avilatek.apk`. You can download it and install it in your Android device.
+The APK is located in the root of the project, in a file called `test_avilatek.apk`. You can download it and install it in your Android device.
 
 If you want to run the app in debug mode, follow the next steps:
 
@@ -20,6 +20,7 @@ The development environment is contained in a [Docker devcontainer]('https://cod
 - [Docker](https://docs.docker.com/get-docker/)
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Visual Studio Code Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+- [Android Debug Bridge (adb)](https://developer.android.com/studio/command-line/adb)
 
 ### :hammer: Steps
 1. Clone the repository (If you are on Windows, it is recomended to clone it inside the [WSL2]('https://learn.microsoft.com/en-us/windows/wsl/about') filesystem).
@@ -28,5 +29,7 @@ The development environment is contained in a [Docker devcontainer]('https://cod
 4. Wait for the container to build and start. (It may take a while the first time).
 5. Open a terminal inside the container (Terminal -> New Terminal).
 6. Run `flutter pub get` to install the dependencies.
-7. Run `flutter run` to start the app in debug mode.
+7. Connect your Android device to your computer using ADB.
+8. Run `flutter run` to start the app in debug mode.
+
 
