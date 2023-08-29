@@ -8,3 +8,9 @@ final class MovieDetailsLoadEvent extends MovieDetailsEvent {
 
   MovieDetailsLoadEvent({required this.movieId});
 }
+
+final class ClickOnActorEvent extends MovieDetailsEvent {
+  final int actorId;
+
+  ClickOnActorEvent({required this.actorId});
+}

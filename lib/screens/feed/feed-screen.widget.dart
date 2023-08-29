@@ -84,13 +84,9 @@ class _FeedScreenWidgetState extends State<FeedScreenWidget> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(
-            width: 50,
-            height: 50,
-            child: IconButton(
-                onPressed: () {},
-                icon: Image.asset('assets/hamburger-button.png')),
-          ),
+          common_widgets.ImageButtonWidget(
+              image: Image.asset('assets/hamburger-button.png'),
+              onPressed: () {}),
           const Text(
             'Latest',
             textAlign: TextAlign.center,
@@ -117,10 +113,23 @@ class _FeedScreenWidgetState extends State<FeedScreenWidget> {
     const double offset = 36;
 
     return common_widgets.MovieFeedWidget(
-        offset: offset,
-        items: items,
-        onItemClicked: (movieId) {
-          _feedBloc.add(ClickInItem(movieId: movieId));
-        });
+      offset: offset,
+      items: _buildCards(items),
+    );
+  }
+
+  List<common_widgets.ContentCardWidget> _buildCards(
+      final List<FeedMovieDto> items) {
+    return items
+        .map((item) => common_widgets.ContentCardWidget(
+              imageUrl: item.imageUrl ??
+                  'https://via.assets.so/img.jpg?w=120&h=220&tc=blue&bg=#cecece&t=No-Pic',
+              title: item.title,
+              subtitle: '${(item.voteAverage * 10).toInt()}% User Score',
+              onClicked: () {
+                _feedBloc.add(ClickInItem(movieId: item.id));
+              },
+            ))
+        .toList();
   }
 }

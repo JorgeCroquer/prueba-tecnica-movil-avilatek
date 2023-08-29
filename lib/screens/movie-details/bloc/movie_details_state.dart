@@ -18,3 +18,9 @@ final class MovieDetailsLoaded extends MovieDetailsState {
 }
 
 final class MovieDetailsError extends MovieDetailsState {}
+
+final class ActorClicked extends MovieDetailsState {
+  final int actorId;
+
+  ActorClicked({required this.actorId});
+}

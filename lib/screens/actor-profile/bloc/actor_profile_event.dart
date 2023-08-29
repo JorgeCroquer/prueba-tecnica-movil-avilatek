@@ -8,3 +8,9 @@ final class LoadActorProfile extends ActorProfileEvent {
 
   LoadActorProfile({required this.actorId});
 }
+
+final class ClickOnMovie extends ActorProfileEvent {
+  final int movieId;
+
+  ClickOnMovie({required this.movieId});
+}

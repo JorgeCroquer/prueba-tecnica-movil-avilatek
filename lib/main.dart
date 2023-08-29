@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:technical_test_avilatek/screens/actor-profile/services/actor-profile.service.dart';
 import 'package:technical_test_avilatek/screens/movie-details/services/movie-details.service.dart';
 
 import 'common/services/api.service.dart';
@@ -19,9 +20,13 @@ Future<void> main() async {
   final FeedService feedService = FeedService(moviesApiService);
   final MovieDetailsService movieDetailsService =
       MovieDetailsService(moviesApiService);
+  final ActorProfileService actorProfileService =
+      ActorProfileService(apiService: moviesApiService);
 
   final List<BlocProvider> blocs = [
-    BlocProvider<ActorProfileBloc>(create: (_) => ActorProfileBloc()),
+    BlocProvider<ActorProfileBloc>(
+        create: (_) =>
+            ActorProfileBloc(actorProfileService: actorProfileService)),
     BlocProvider<FeedBloc>(create: (_) => FeedBloc(feedService: feedService)),
     BlocProvider<MovieDetailsBloc>(
         create: (_) =>

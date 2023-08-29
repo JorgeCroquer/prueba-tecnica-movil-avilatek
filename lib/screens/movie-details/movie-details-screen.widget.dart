@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../common/widgets/index.dart' as common_widgets;
+import '../../screens/index.dart' as screens;
 
 import 'bloc/movie_details_bloc.dart';
 
@@ -32,7 +33,13 @@ class _MovieDetailsScreenWidgetState extends State<MovieDetailsScreenWidget> {
   Widget build(BuildContext context) {
     return BlocConsumer<MovieDetailsBloc, MovieDetailsState>(
       bloc: _movieDetailsBloc,
-      listener: (context, state) => null,
+      listener: (context, state) => state is ActorClicked
+          ? Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return screens.ActorProfileScreenWidget(
+                actorId: state.actorId,
+              );
+            }))
+          : null,
       buildWhen: (previous, current) =>
           current is MovieDetailsLoaded ||
           current is MovieDetailsLoading ||
@@ -86,14 +93,13 @@ class _MovieDetailsScreenWidgetState extends State<MovieDetailsScreenWidget> {
     return Positioned(
       left: 11,
       top: 41,
-      child: SizedBox(
-        width: 50,
-        height: 50,
-        child: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Image.asset('assets/cancel-button.png')),
+      child: common_widgets.ImageButtonWidget(
+        image: Image.asset('assets/cancel-button.png'),
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return const screens.FeedScreenWidget();
+          }));
+        },
       ),
     );
   }
@@ -163,7 +169,7 @@ class _MovieDetailsScreenWidgetState extends State<MovieDetailsScreenWidget> {
         imageUrl: castMember.imageUrl ?? '',
         cardSize: const Size(113.25, 163.5),
         onClicked: () {
-          // handle click event
+          _movieDetailsBloc.add(ClickOnActorEvent(actorId: castMember.id));
         },
       );
     }).toList();

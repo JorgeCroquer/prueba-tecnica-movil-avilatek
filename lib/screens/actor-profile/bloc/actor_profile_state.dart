@@ -10,7 +10,15 @@ final class ActorProfileLoading extends ActorProfileState {}
 final class ActorProfileLoaded extends ActorProfileState {
   final ActorDto actor;
 
-  ActorProfileLoaded(this.actor);
+  final ActorMoviesDto movies;
+
+  ActorProfileLoaded(this.actor, this.movies);
 }
 
 final class ActorProfileError extends ActorProfileState {}
+
+final class ActorProfileMovieSelected extends ActorProfileState {
+  final int movieId;
+
+  ActorProfileMovieSelected(this.movieId);
+}

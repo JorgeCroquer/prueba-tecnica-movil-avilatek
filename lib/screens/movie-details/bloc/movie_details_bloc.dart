@@ -26,6 +26,10 @@ class MovieDetailsBloc extends Bloc<MovieDetailsEvent, MovieDetailsState> {
         emit(MovieDetailsError());
       }
     });
+
+    on<ClickOnActorEvent>((event, emit) {
+      emit(ActorClicked(actorId: event.actorId));
+    });
   }
 
   Future<MovieDetailsDto> _getMovieDetails(int movieId) async {

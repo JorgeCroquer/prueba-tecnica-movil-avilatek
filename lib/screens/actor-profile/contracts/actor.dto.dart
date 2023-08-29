@@ -13,6 +13,7 @@ class ActorDto {
   final String placeOfBirth;
   final double popularity;
   final String profilePath;
+  String? imageUrl;
 
   ActorDto({
     required this.adult,
