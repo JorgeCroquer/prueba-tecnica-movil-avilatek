@@ -6,6 +6,7 @@ The architecture used is BLoC, and the app is divided in 3 main screens:
 - Feed: Shows a list of movies. The user can click on a movie to see its details.
 - Movie Details: Shows the details of a movie. The user can click on an actor to see its details.
 - Actor Profile: Shows the details of an actor and a list of movies where he/she has participated. The user can click on a movie to see its details.
+  
 Each of these screens has their own BLoC's.
 There is also a common folder that contains all the things that the screens share.
 
